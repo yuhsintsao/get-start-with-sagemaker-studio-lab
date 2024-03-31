@@ -1,3 +1,4 @@
-yaml
+PyYAML
 gradio
 anthropic
+anthropic[bedrock]

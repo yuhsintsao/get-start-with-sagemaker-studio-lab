@@ -24,23 +24,34 @@ Amazon SageMaker Studio Lab 是一個免費的機器學習開發環境，免費�
 * 使用命名設定檔，或者
 * 使用環境變數來設定 AWS CLI
 
-若要使用命名設定檔，請先設定 AWS Access Key ID 和 AWS Secret Access Key。
+若要使用命名設定檔：
 
 ```{shell}
 aws configure
+```
+
+若要使用環境變數來設定：
+
+```{shell}
+export AWS_ACCESS_KEY_ID=<>
+export AWS_SECRET_ACCESS_KEY=<>
 ```
 
 ## 開始使用
 
 ### 用 Gradio 快速建立一個生成式 AI 應用
 
-安裝對應版本的 AWS Python SDK，和所需要的 Python 開源函式庫。
+步驟 1 : 安裝對應版本的 AWS Python SDK，和所需要的 Python 開源函式庫。
 
 ```{shell}
 pip3 install -r requirements.txt
 ```
 
-步驟 1 : 設定參數，在 `config.yml` 檔案中設定您的環境變數。
+步驟 2 : 設定參數，在 `config.yml` 檔案中設定您的環境變數。請將其中的 `SAGEMAKER_STUDIO_IDENTIFIER` 替換成您 SageMaker Studio Lab 網址內的字串：
+
+![Unique identifier](./static/sagemaker-studio-lab-unique-identifier.png)
+
+您可以更改埠口（port），預設值是 8080。
 
 步驟 2 : 執行 Gradio app。
 
@@ -48,18 +59,12 @@ pip3 install -r requirements.txt
 python start.py
 ```
 
-步驟 3 : 在瀏覽器輸入以下網址。請將其中的 `<unique identifier>` 替換成您 SageMaker Studio Lab 網址內的字串：
+步驟 3 : 點擊 terminal 內的網址。
 
-![Unique identifier](./static/sagemaker-studio-lab-unique-identifier.png)
-
-```{shell}
-https://<unique identifier>.studio.us-east-2.sagemaker.aws/studiolab/default/jupyter/proxy/8080/
-```
-
-步驟 4（可略）: 您可能需要更改埠口（port），預設值是 8080。
-
-![Port number](./static/sagemaker-studio-lab-port.png)
+![Click url](./static/sagemaker-studio-lab-url.png)
 
 設定完成，可以開始使用 Gradio app 測試 Amazon Bedrock！
+
+![Get started](./static/get-started.png)
 
 

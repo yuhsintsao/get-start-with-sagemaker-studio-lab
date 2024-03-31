@@ -1,16 +1,14 @@
 import yaml
 from anthropic import AnthropicBedrock
 
-with open('../config.yml', 'r') as file:
+
+with open('config.yml', 'r') as file:
 	config = yaml.safe_load(file)
-      
-client = AnthropicBedrock(
-    aws_access_key=config['AWS_ACCESS_KEY'],
-    aws_secret_key=config['AWS_SECRET_KEY']
-)
+    
+client = AnthropicBedrock()
 
 model_id = config['MODEL_ID']
-	
+
 def chatbot(query):
 
     message = client.messages.create(
